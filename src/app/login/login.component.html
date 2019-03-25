@@ -1,0 +1,16 @@
+<form #ref="ngForm" (ngSubmit)="login(ref.value)">
+  <label>Login form</label>
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email">
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd" [(ngModel)]="pass" name="pass">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <h4 ><a href="http://localhost:3000/auth/google"> Sign in with Google   </a> </h4>
+  <h4> <a  href="http://localhost:3000/auth/facebook">Sign in with Facebook</a></h4>
+
+</form>
