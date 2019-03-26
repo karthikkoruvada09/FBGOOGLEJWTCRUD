@@ -18,6 +18,7 @@ obj:object={};
 modal:boolean=false;
 
   ngOnInit() {
+    //get
     this.serc.get().subscribe(data=>{
       this.data=data;
     })

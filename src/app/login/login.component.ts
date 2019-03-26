@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit() {
-     localStorage.removeItem('token');    //after logging in if user opens login again token wont be there.....so the option login after login wont be available
+     localStorage.removeItem('token');    //after logging in if user opens login again token wont be there.....so the option to redirect to login from url after login wont be available
   }
 
   login(v){

@@ -35,4 +35,6 @@ export class ServeService {
   getToken():any{
     return localStorage.getItem('token')
   }
+
+  
 }

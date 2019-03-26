@@ -18,9 +18,9 @@ app.register=(req,res)=>{
 app.login=(req,res)=>{
     models.sess.find({email:req.body.email},(err,result)=>{
         if(result[0]){
-            const token = Jwt.sign({ sub : result[0]._id },'secret')  ;
+            const token = Jwt.sign({sub : result[0]._id },'secret')  ;    //,{expiresIn:15} --expires in 15sec
            // console.log(token);
-            res.status(200).send({token})
+            res.status(200).send({token});
         }else{
             res.status(401).send({message:"please check ur password and email"})
         }

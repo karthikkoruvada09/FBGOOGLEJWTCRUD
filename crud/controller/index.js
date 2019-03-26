@@ -10,8 +10,8 @@ app.post=   async(req,res)=>{
             let result;
             try{
                 result = await Joi.validate(req.body,schema);
-                console.log(result)
-            }catch(e){
+                console.log(result);
+            }catch(err){
                 return  res.status(400).send({err});
             }
             const post=new model(result);
@@ -20,7 +20,7 @@ app.post=   async(req,res)=>{
             const data1=await model.find({});
             res.status(200).send(data1);
         }catch(err){
-             return   res.status(500).send({err});
+           //  return   res.status(500).send({err});
             
         }
 };

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, DoCheck } from '@angular/core';
 import { ServeService } from './serve.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit,DoCheck {
   title = 'jwt-mvc';
 
 
@@ -18,11 +18,16 @@ export class AppComponent implements OnInit {
 
   
 ngOnInit(){
-      //shouldn't be kept
-    
-
+      //shouldn't be kept removing localstorage token...
 }
 
+ngDoCheck(){
+  // console.log("outside")
+  // setInterval(()=>{
+  //   console.log("inside")
+  //   this.router.navigate(['/login']);
+  // },60*1000)
+}
 
   logout(){
     localStorage.removeItem('token');
