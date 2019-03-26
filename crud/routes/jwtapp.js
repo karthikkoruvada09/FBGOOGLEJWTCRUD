@@ -17,11 +17,13 @@ let verifyToken = function (req, res, next) {
          return   res.status(401).send({message :"unotherized"})
         }
         let payload = Jwt.verify(token, 'secret');
+        console.log(payload)
         if (!payload) {
             return res.status(401).send({ message: "unotherized" })
         }
-        req.userId = payload.sub;    //why we are doing this i donno
-        next();
+      //
+     //  req.userId = payload.sub;    //useful for further routes
+     next()
     } catch (err) {
         return res.status(401).send({ err });
 

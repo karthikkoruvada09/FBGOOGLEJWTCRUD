@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ServeService } from './serve.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -13,12 +13,7 @@ export class AppComponent implements OnInit {
 
  token:any;
   constructor(private ser:ServeService,private router:Router,private route:ActivatedRoute){
-    this.route.queryParams.subscribe((sol)=>{
-        this.token=sol.token;
-        if(this.token==undefined || this.token){
-          localStorage.setItem('token',this.token);
-        }
-     })
+
   }
 
   
@@ -27,8 +22,6 @@ ngOnInit(){
     
 
 }
-
-
 
 
   logout(){

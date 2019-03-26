@@ -10,7 +10,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class SpecialComponent implements OnInit {
 
   constructor(private ser:ServeService,private router:Router,private route:ActivatedRoute) { 
+   
   }
+  
 
 
   data:any =[];

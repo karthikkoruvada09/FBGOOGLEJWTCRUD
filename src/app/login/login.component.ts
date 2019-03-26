@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServeService } from '../serve.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +9,14 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private ser:ServeService,private router:Router) { }
+  constructor(private ser:ServeService,private router:Router,private route:ActivatedRoute) {
+    this.route.queryParams.subscribe((sol)=>{
+      localStorage.setItem('token',sol.token);
+      if(sol.token){
+        this.router.navigate(['/special'])
+      }
+ })
+   }
 
   ngOnInit() {
      localStorage.removeItem('token');    //after logging in if user opens login again token wont be there.....so the option login after login wont be available

@@ -18,7 +18,7 @@ let verifyToken =function(req,res,next){
         if(!payload){
      return   res.status(401).send({message :"unotherized"})
         }
-        req.userId=payload.sub;    //why we are doing this i donno
+     //   req.userId=payload.sub;    //why we are doing this i donno
         next();
     }catch(err){
      return   res.status(401).send({err})
